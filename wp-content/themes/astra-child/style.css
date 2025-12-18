@@ -11,3 +11,447 @@
  * Text Domain:  astra
  */
 
+/* ============================================================================
+   ONEORBIX - OPTIMIZACIÓN DE TIPOGRAFÍA Y DISEÑO
+   ============================================================================ */
+
+/* Variables CSS para fácil mantenimiento */
+:root {
+	--orbix-font-base: 16px;
+	--orbix-font-scale: 1.25; /* Major Third - Escala tipográfica moderna */
+	--orbix-line-height-tight: 1.2;
+	--orbix-line-height-normal: 1.5;
+	--orbix-line-height-relaxed: 1.75; /* Mejorado para legibilidad */
+	--orbix-letter-spacing-tight: -0.015em;
+	--orbix-letter-spacing-normal: 0;
+	--orbix-letter-spacing-wide: 0.01em;
+	--orbix-color-text-primary: #000000; /* Negro puro para mejor contraste */
+	--orbix-color-text-secondary: #333333; /* Gris oscuro mejorado */
+	--orbix-color-success: #10b981; /* Verde éxito */
+	--orbix-color-bg-light: #fafafa;
+	--orbix-color-border: #e5e5e5;
+	--orbix-spacing-xs: 0.5rem;
+	--orbix-spacing-sm: 1rem;
+	--orbix-spacing-md: 1.5rem;
+	--orbix-spacing-lg: 2rem;
+	--orbix-spacing-xl: 3rem;
+	--orbix-spacing-xxl: 4rem;
+	--orbix-radius: 8px;
+	--orbix-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================================================
+   JERARQUÍA VISUAL - ESCALA TIPOGRÁFICA MODERNA
+   ============================================================================ */
+
+/* H1 - Título Principal - Escala tipográfica optimizada */
+.orbix-page h1,
+.orbix-services-page h1,
+.site-content h1,
+.entry-content h1,
+.wp-block-heading h1,
+.single .entry-content h1,
+.page .entry-content h1 {
+	font-size: clamp(2rem, 4.5vw + 0.5rem, 2.75rem); /* 32px - 44px responsive */
+	font-weight: 700;
+	line-height: 1.2; /* Tighter para títulos grandes */
+	letter-spacing: -0.02em; /* Tracking ajustado para títulos */
+	color: var(--orbix-color-text-primary);
+	margin-bottom: var(--orbix-spacing-md);
+	margin-top: 0;
+	text-align: center;
+	font-family: inherit; /* Hereda la fuente del tema */
+}
+
+/* H2 - Subtítulos y Secciones - Jerarquía clara */
+.orbix-page h2,
+.orbix-services-page h2,
+.site-content h2,
+.entry-content h2,
+.wp-block-heading h2,
+.single .entry-content h2,
+.page .entry-content h2 {
+	font-size: clamp(1.5rem, 3.5vw + 0.25rem, 2rem); /* 24px - 32px responsive */
+	font-weight: 600;
+	line-height: 1.3;
+	letter-spacing: -0.015em;
+	color: var(--orbix-color-text-primary);
+	margin-bottom: var(--orbix-spacing-md);
+	margin-top: var(--orbix-spacing-xl);
+	text-align: center;
+	font-family: inherit;
+}
+
+/* H3 - Subsecciones */
+.orbix-page h3,
+.orbix-services-page h3,
+.site-content h3,
+.wp-block-heading h3 {
+	font-size: clamp(1.25rem, 3vw, 1.75rem); /* 20px - 28px responsive */
+	font-weight: 600;
+	line-height: 1.4;
+	letter-spacing: var(--orbix-letter-spacing-normal);
+	color: var(--orbix-color-text-primary);
+	margin-bottom: var(--orbix-spacing-sm);
+	margin-top: var(--orbix-spacing-lg);
+}
+
+/* Texto del cuerpo - Optimizado para legibilidad y lectura */
+.orbix-page p,
+.orbix-services-page p,
+.site-content p,
+.entry-content p,
+.single .entry-content p,
+.page .entry-content p {
+	font-size: clamp(1rem, 1.5vw + 0.25rem, 1.125rem); /* 16px - 18px responsive */
+	line-height: 1.75; /* Interlineado generoso para mejor legibilidad */
+	letter-spacing: 0.01em; /* Ligero espaciado para lectura fluida */
+	color: var(--orbix-color-text-secondary);
+	margin-bottom: var(--orbix-spacing-md);
+	margin-top: 0;
+	text-align: center;
+	max-width: 70ch; /* Ancho óptimo para legibilidad (70 caracteres) - mejorado */
+	margin-left: auto;
+	margin-right: auto;
+	font-family: inherit;
+	word-spacing: 0.05em; /* Mejora la separación entre palabras */
+}
+
+/* ============================================================================
+   LISTAS DE BENEFICIOS - DISEÑO MODERNO CON CHECKS VERDES
+   ============================================================================ */
+
+.orbix-benefits-list,
+.orbix-services-page ul,
+.entry-content ul:has(li:has(strong)),
+.wp-block-list {
+	list-style: none;
+	padding: 0;
+	margin: var(--orbix-spacing-lg) auto;
+	max-width: 800px;
+}
+
+/* Fallback para navegadores que no soportan :has() */
+@supports not selector(:has(*)) {
+	.orbix-benefits-list,
+	.orbix-services-page ul,
+	.entry-content ul.orbix-has-benefits,
+	.wp-block-list {
+		list-style: none;
+		padding: 0;
+		margin: var(--orbix-spacing-lg) auto;
+		max-width: 800px;
+	}
+}
+
+.orbix-benefits-list li,
+.orbix-services-page ul li,
+.entry-content ul.orbix-has-benefits li,
+.wp-block-list li {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--orbix-spacing-sm);
+	padding: var(--orbix-spacing-md) var(--orbix-spacing-lg);
+	margin-bottom: var(--orbix-spacing-md);
+	background-color: var(--orbix-color-bg-light);
+	border-radius: var(--orbix-radius);
+	border: 1px solid var(--orbix-color-border);
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave */
+	box-shadow: var(--orbix-shadow-sm);
+}
+
+.orbix-benefits-list li:hover,
+.orbix-services-page ul li:hover,
+.entry-content ul.orbix-has-benefits li:hover {
+	background-color: #ffffff;
+	border-color: var(--orbix-color-success);
+	box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+	transform: translateY(-2px); /* Efecto hover más sutil */
+}
+
+
+/* Check verde - Icono moderno y profesional */
+.orbix-benefits-list li::before,
+.orbix-services-page ul li::before,
+.entry-content ul.orbix-has-benefits li::before {
+	content: "✓";
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	background-color: var(--orbix-color-success);
+	color: #ffffff;
+	border-radius: 50%;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1;
+	margin-top: 0;
+	box-shadow: var(--orbix-shadow-sm);
+	position: relative;
+	top: 2px; /* Ajuste fino de alineación vertical */
+}
+
+/* Contenido del item de la lista */
+.orbix-benefits-list li > *,
+.orbix-services-page ul li > * {
+	flex: 1;
+	margin: 0;
+}
+
+/* Título del beneficio */
+.orbix-benefits-list li strong,
+.orbix-benefits-list li .orbix-benefit-title,
+.orbix-services-page ul li strong {
+	display: block;
+	font-size: clamp(1.125rem, 2.5vw, 1.25rem); /* 18px - 20px */
+	font-weight: 600;
+	line-height: 1.4;
+	color: var(--orbix-color-text-primary);
+	margin-bottom: var(--orbix-spacing-xs);
+}
+
+/* Descripción del beneficio - Legible y bien espaciada */
+.orbix-benefits-list li p,
+.orbix-benefits-list li .orbix-benefit-description,
+.orbix-services-page ul li p,
+.entry-content ul.orbix-has-benefits li p {
+	font-size: clamp(0.9375rem, 1.5vw + 0.125rem, 1rem); /* 15px - 16px responsive */
+	line-height: 1.7; /* Interlineado cómodo para descripciones */
+	letter-spacing: 0.01em;
+	color: var(--orbix-color-text-secondary);
+	text-align: left;
+	margin: 0;
+	padding-left: 0;
+}
+
+/* ============================================================================
+   OPTIMIZACIÓN MÓVIL
+   ============================================================================ */
+
+@media screen and (max-width: 768px) {
+	:root {
+		--orbix-font-base: 16px;
+		--orbix-spacing-xs: 0.5rem;
+		--orbix-spacing-sm: 0.875rem;
+		--orbix-spacing-md: 1.25rem;
+		--orbix-spacing-lg: 1.75rem;
+		--orbix-spacing-xl: 2.5rem;
+	}
+
+	/* Ajustes para móvil - Márgenes laterales optimizados */
+	.orbix-page,
+	.orbix-services-page,
+	.site-content,
+	.entry-content,
+	.ast-container {
+		padding-left: 1.25rem !important; /* Márgenes cómodos en móvil */
+		padding-right: 1.25rem !important;
+	}
+	
+	/* Contenedor principal con padding mejorado */
+	.ast-container,
+	.site-content .ast-container {
+		max-width: 100%;
+		padding-left: 1.25rem;
+		padding-right: 1.25rem;
+	}
+
+	/* Títulos más compactos en móvil */
+	.orbix-page h1,
+	.orbix-services-page h1,
+	.site-content h1 {
+		margin-bottom: var(--orbix-spacing-md);
+		font-size: 2rem;
+	}
+
+	.orbix-page h2,
+	.orbix-services-page h2,
+	.site-content h2 {
+		margin-top: var(--orbix-spacing-lg);
+		margin-bottom: var(--orbix-spacing-sm);
+		font-size: 1.5rem;
+	}
+
+	/* Texto del cuerpo más legible en móvil - Tamaño mínimo cómodo */
+	.orbix-page p,
+	.orbix-services-page p,
+	.site-content p,
+	.entry-content p {
+		font-size: 1rem; /* 16px mínimo - cómodo para lectura móvil */
+		line-height: 1.75; /* Interlineado generoso en móvil */
+		letter-spacing: 0.015em; /* Ligero espaciado adicional */
+		margin-bottom: var(--orbix-spacing-md);
+		max-width: 100%; /* Permite uso completo del ancho en móvil */
+	}
+
+	/* Listas optimizadas para móvil */
+	.orbix-benefits-list li,
+	.orbix-services-page ul li,
+	.entry-content ul.orbix-has-benefits li {
+		padding: var(--orbix-spacing-md);
+		margin-bottom: var(--orbix-spacing-md);
+		flex-direction: row; /* Mantiene el check al lado */
+		gap: var(--orbix-spacing-sm);
+	}
+
+	.orbix-benefits-list li::before,
+	.orbix-services-page ul li::before,
+	.entry-content ul.orbix-has-benefits li::before {
+		align-self: flex-start;
+		margin-top: 0.125rem; /* Ajuste fino para alineación */
+		width: 24px; /* Tamaño ligeramente menor en móvil */
+		height: 24px;
+		font-size: 14px;
+	}
+	
+	/* Texto de beneficios en móvil */
+	.orbix-benefits-list li strong,
+	.orbix-services-page ul li strong {
+		font-size: 1.0625rem; /* 17px - tamaño cómodo en móvil */
+	}
+	
+	.orbix-benefits-list li p,
+	.orbix-services-page ul li p {
+		font-size: 0.9375rem; /* 15px - legible en móvil */
+		line-height: 1.7;
+	}
+}
+
+/* Tablet */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+	.orbix-page,
+	.orbix-services-page,
+	.site-content,
+	.entry-content {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+	.orbix-page,
+	.orbix-services-page,
+	.site-content,
+	.entry-content {
+		padding-left: 2rem;
+		padding-right: 2rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+}
+
+/* ============================================================================
+   SEPARADORES Y ELEMENTOS VISUALES
+   ============================================================================ */
+
+.orbix-separator,
+.orbix-page hr,
+.orbix-services-page hr {
+	border: none;
+	border-top: 1px solid #e5e5e5;
+	margin: var(--orbix-spacing-xl) auto;
+	max-width: 100px;
+}
+
+/* ============================================================================
+   MEJORAS DE ACCESIBILIDAD Y SEO
+   ============================================================================ */
+
+/* Mejora del contraste de texto */
+.orbix-page *,
+.orbix-services-page * {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Enfoque visible para accesibilidad */
+.orbix-benefits-list li:focus-within {
+	outline: 2px solid var(--orbix-color-success);
+	outline-offset: 2px;
+}
+
+/* ============================================================================
+   AJUSTES ESPECÍFICOS PARA PÁGINAS DE SERVICIOS
+   ============================================================================ */
+
+/* Contenedor principal de servicios */
+.orbix-services-page .entry-content,
+.orbix-services-page .ast-container {
+	padding-top: var(--orbix-spacing-xl);
+	padding-bottom: var(--orbix-spacing-xl);
+}
+
+/* Mejora de espaciado en secciones */
+.orbix-services-page section {
+	margin-bottom: var(--orbix-spacing-xl);
+}
+
+/* Alineación centrada para títulos principales */
+.orbix-services-page .entry-header h1 {
+	text-align: center;
+	margin-bottom: var(--orbix-spacing-lg);
+}
+
+/* ============================================================================
+   APLICACIÓN AUTOMÁTICA A PÁGINAS DE SERVICIOS
+   ============================================================================ */
+
+/* Detectar automáticamente páginas de servicios por slug o clase */
+body.page-slug-servicios-compradores,
+body.page-slug-servicios,
+body.page-slug-asesoria-exportacion,
+body.page-template-default .entry-content {
+	/* Aplicar clases automáticamente si es necesario */
+}
+
+/* Mejora general para todas las páginas */
+.page .entry-content,
+.single .entry-content {
+	/* Asegurar que los estilos se apliquen */
+}
+
+/* Optimización para contenedores de contenido */
+.ast-container .content-area,
+.ast-container .site-content {
+	max-width: 100%;
+}
+
+/* Mejora de espaciado vertical entre secciones */
+.entry-content > * + * {
+	margin-top: var(--orbix-spacing-md);
+}
+
+.entry-content > h2 + *,
+.entry-content > h1 + * {
+	margin-top: var(--orbix-spacing-md);
+}
+
+/* ============================================================================
+   MEJORAS DE RENDIMIENTO Y SEO
+   ============================================================================ */
+
+/* Optimización de renderizado */
+.orbix-benefits-list,
+.orbix-services-page ul,
+.entry-content ul {
+	will-change: transform;
+	transform: translateZ(0); /* Acelera el renderizado */
+}
+
+/* Mejora del contraste para SEO y accesibilidad */
+.orbix-page a,
+.orbix-services-page a {
+	color: var(--orbix-color-text-primary);
+	text-decoration: underline;
+	text-decoration-color: var(--orbix-color-success);
+	text-underline-offset: 0.2em;
+}
+
+.orbix-page a:hover,
+.orbix-services-page a:hover {
+	color: var(--orbix-color-success);
+}
+

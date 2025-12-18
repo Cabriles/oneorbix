@@ -42,3 +42,25 @@ function astra_child_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'astra_child_enqueue_styles', 15 );
 
+/**
+ * Agregar clases específicas al body para aplicar estilos automáticamente
+ * Esto permite que los estilos se apliquen sin necesidad de agregar clases manualmente
+ */
+function astra_child_body_classes( $classes ) {
+	// Agregar clase para páginas de servicios
+	if ( is_page() ) {
+		$slug = get_post_field( 'post_name', get_post() );
+		
+		// Detectar páginas de servicios por slug
+		if ( strpos( $slug, 'servicios' ) !== false || strpos( $slug, 'asesoria' ) !== false ) {
+			$classes[] = 'orbix-services-page';
+		}
+		
+		// Clase general para todas las páginas
+		$classes[] = 'orbix-page';
+	}
+	
+	return $classes;
+}
+add_filter( 'body_class', 'astra_child_body_classes' );
+
