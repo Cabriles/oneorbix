@@ -1,0 +1,85 @@
+/*
+Theme Name: Astra Child
+Theme URI: https://wpastra.com/
+Template: astra
+Author: Brainstorm Force
+Author URI: https://wpastra.com/about/?utm_source=theme_preview&utm_medium=author_link&utm_campaign=astra_theme
+Description: The Astra WordPress theme is lightning-fast and highly customizable. It has over 1 million downloads and the only theme in the world with 5,700+ five-star reviews! It’s ideal for professional web designers, solopreneurs, small businesses, eCommerce, membership sites and any type of website. It offers special features and templates so it works perfectly with all page builders like Spectra, Elementor, Beaver Builder, etc. Fast performance, clean code, mobile-first design and schema markup are all built-in, making the theme exceptionally SEO-friendly. It’s fully compatible with WooCommerce, SureCart and other eCommerce plugins and comes with lots of store-friendly features and templates. Astra also provides expert support for free users. A dedicated team of fully trained WordPress experts are on hand to help with every aspect of the theme. Try the live demo of Astra: https://zipwp.org/themes/astra/
+Tags: custom-menu,custom-logo,entertainment,one-column,two-columns,left-sidebar,e-commerce,right-sidebar,custom-colors,editor-style,featured-images,full-width-template,microformats,post-formats,rtl-language-support,theme-options,threaded-comments,translation-ready,blog
+Version: 4.11.7.1753500896
+Updated: 2025-07-26 03:34:56
+*/
+
+/* === Estilos para archivo de Paquetes === */
+
+.paquetes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.paquete-thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.paquete-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 10px 0 5px 0;
+    color: #1e1e1e;
+}
+
+.paquete-excerpt {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* === WooCommerce - Estilos base === */
+.woocommerce-account ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.woocommerce-account h2,
+.woocommerce-account h3 {
+    color: #000;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* === Correcciones de alineación para el panel de usuario === */
+.woocommerce-account .woocommerce-MyAccount-content {
+    margin: 0 !important;
+    padding: 0 20px !important;
+    max-width: 100% !important;
+    text-align: left !important;
+    display: block !important;
+    float: none !important;
+    clear: both !important;
+}
+
+.woocommerce-account .woocommerce {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content p,
+.woocommerce-account .woocommerce-MyAccount-content a {
+    text-align: left !important;
+}
+
+/* === Forzar fondo y texto en el panel del usuario === */
+body.page-template-page-panel-del-usuario {
+    background-color: #fffaf5;
+    color: #1e1e1e;
+}
+
