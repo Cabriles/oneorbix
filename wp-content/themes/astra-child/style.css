@@ -317,6 +317,54 @@
 		font-size: 0.9375rem; /* 15px - legible en móvil */
 		line-height: 1.7;
 	}
+
+	/* ============================================================================
+	   CORRECCIÓN DEL MENÚ MÓVIL EN PÁGINAS DE SERVICIOS
+	   Solo afecta a .ast-mobile-header-wrap para mantener logo y botón en fila
+	   ============================================================================ */
+	
+	.orbix-services-page .ast-mobile-header-wrap {
+		display: flex !important;
+		flex-direction: row !important; /* Mantener elementos en fila horizontal */
+		align-items: center !important;
+		justify-content: space-between !important;
+		width: 100% !important;
+	}
+	
+	/* Asegurar que el logo y el botón de menú estén en línea */
+	.orbix-services-page .ast-mobile-header-wrap .ast-mobile-header-bar {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+		width: 100% !important;
+	}
+	
+	/* Logo en posición correcta */
+	.orbix-services-page .ast-mobile-header-wrap .site-branding,
+	.orbix-services-page .ast-mobile-header-wrap .ast-site-identity,
+	.orbix-services-page .ast-mobile-header-wrap .ast-builder-layout-element[data-section="title_tagline"] {
+		display: inline-flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		flex-shrink: 0 !important;
+	}
+	
+	/* Botón de menú en posición correcta */
+	.orbix-services-page .ast-mobile-header-wrap .ast-mobile-menu-buttons,
+	.orbix-services-page .ast-mobile-header-wrap .ast-header-toggle-menu-wrap {
+		display: inline-flex !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		flex-shrink: 0 !important;
+		margin-left: auto !important;
+	}
+	
+	/* Asegurar que los elementos internos del header móvil no se apilen */
+	.orbix-services-page .ast-mobile-header-wrap > * {
+		display: inline-flex !important;
+		flex-direction: row !important;
+	}
 }
 
 /* Tablet */
